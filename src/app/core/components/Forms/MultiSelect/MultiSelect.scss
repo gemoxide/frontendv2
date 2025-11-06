@@ -1,0 +1,28 @@
+@import "../../../../../variables.scss";
+
+.multi-select {
+    .dropdown-container .dropdown-heading {
+        color: $secondary-color !important;
+    }
+
+    .dropdown-heading-dropdown-arrow {
+        color: $secondary-color !important;
+    }
+
+    .dropdown-search-clear-icon {
+        color: $secondary-color !important;
+    }
+
+    .dropdown-container {
+        padding: 6px 8px;
+    }
+
+    .dropdown-container {
+        border: 1px;
+        &:focus-within {
+            box-shadow: none;
+            border-color: $primary-color;
+            border: 0px;
+        }
+    }
+}

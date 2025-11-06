@@ -1,0 +1,5 @@
+import ReactDOM from "react-dom/client";
+import AppRoot from "./app";
+import "./index.scss";
+
+ReactDOM.createRoot(document.getElementById("root")!).render(<AppRoot />);

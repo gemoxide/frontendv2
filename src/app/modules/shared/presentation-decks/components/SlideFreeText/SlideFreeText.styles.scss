@@ -1,0 +1,20 @@
+.free-text-editor-container {
+    .quill {
+        .ql {
+            &-toolbar {
+                background-color: white;
+                border: none;
+                margin-bottom: 4px;
+            }
+
+            &-container {
+                background-color: white;
+                border: none;
+            }
+
+            &-editor {
+                min-height: 200px;
+            }
+        }
+    }
+}
