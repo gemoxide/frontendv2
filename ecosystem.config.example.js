@@ -1,10 +1,10 @@
 module.exports = {
-    apps: [
-        {
-            name: "app.gocoachedsuccess.com",
-            cwd: ".",
-            script: "npm",
-            args: "run preview",
-        },
-    ],
+  apps: [
+    {
+      name: "app.cclpi.com",
+      cwd: ".",
+      script: "npm",
+      args: "run preview",
+    },
+  ],
 };

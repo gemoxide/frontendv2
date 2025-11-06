@@ -60,3 +60,7 @@ export const registerUserRequest = (payload: RegisterUserParam) => {
 export const impersonateUserRequest = (user_id: number) => {
   return httpClient.post(`/api/v1/admin/users/${user_id}/impersonate`);
 };
+
+export const updateUserSignatureRequest = (payload: string) => {
+  return httpClient.post("/api/v1/auth/signature", { signature: payload });
+};
