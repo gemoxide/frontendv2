@@ -46,7 +46,7 @@ export const updateUserRequest = (payload: UpdateUserParam) => {
 export const updateUserAvatarRequest = (payload: UpdateUserAvatarParam) => {
   const formData = new FormData();
   formData.append("avatar", payload.file);
-  return httpClient.post("/api/v1/users/avatar", formData);
+  return httpClient.post("/api/v1/auth/avatar", formData);
 };
 
 export const updateUserPasswordRequest = (payload: UpdateUserPasswordParam) => {
