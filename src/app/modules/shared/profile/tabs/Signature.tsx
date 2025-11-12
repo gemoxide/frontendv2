@@ -9,7 +9,6 @@ const Signature = () => {
       if (data) {
         toast.success("Signature updated successfully");
       }
-      console.log(data);
     } catch (error) {
       toast.error("Failed to update signature");
     }
