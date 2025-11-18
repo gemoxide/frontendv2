@@ -11,6 +11,7 @@ import {
   deleteProductRequest,
   exportProductsInExcelRequest,
   exportProductsInPdfRequest,
+  exportProductsInWordRequest,
   getProductsRequest,
 } from "../../../core/services/product/product.service";
 import KebabDropdown from "../../../core/components/KebabDropdown";
@@ -24,6 +25,7 @@ import {
   downloadFile,
   downloadFileFromUrl,
 } from "../../../core/helpers/download-file";
+import Overlay from "../../../core/components/Overlay";
 const AdminDashboard = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const [page, setPage] = useState<number>(1);
@@ -89,6 +91,10 @@ const AdminDashboard = () => {
                 label: "Delete",
                 action: () => handleDeleteProduct(product),
                 isDanger: true,
+              },
+              {
+                label: "Export Word",
+                action: () => handleExportProductsWord(product.id.toString()),
               },
             ]}
           />
@@ -168,6 +174,24 @@ const AdminDashboard = () => {
     setPerPage(newPerPage);
   };
 
+  const handleExportProductsWord = async (id: string) => {
+    try {
+      setExportLoading(true);
+      const { data } = (await exportProductsInWordRequest(
+        id
+      )) as unknown as IProductExportResponse;
+      if (data?.download_url) {
+        downloadFileFromUrl(data.download_url, data.filename);
+        toast.success("Products exported successfully");
+      }
+    } catch (error) {
+      console.error(error);
+      toast.error("Failed to export products word");
+    } finally {
+      setExportLoading(false);
+    }
+  };
+
   return (
     <>
       <Modal
@@ -189,6 +213,7 @@ const AdminDashboard = () => {
           />
         </div>
       </Modal>
+      {exportLoading && <Overlay />}
       <BreadCrumbs keys={["Admin", "Dashboard"]} />
       <div className="p-4 card bg-white rounded-md shadow-lg">
         <div className="flex items-center justify-between mb-4">

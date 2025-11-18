@@ -37,3 +37,9 @@ export const exportProductsInPdfRequest = (): Promise<AxiosResponse> => {
 export const exportProductsInExcelRequest = (): Promise<AxiosResponse> => {
   return httpClient.get(`/api/v1/products/export/excel`);
 };
+
+export const exportProductsInWordRequest = (
+  id: string
+): Promise<AxiosResponse> => {
+  return httpClient.get(`/api/v1/products/${id}/export/word`);
+};
