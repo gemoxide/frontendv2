@@ -1,3 +1,4 @@
+import React from "react";
 import BreadCrumbs from "../../../core/components/BreadCrumbs";
 import CustomDataTable from "../../../core/components/DataTable";
 import { TableColumn } from "react-data-table-component";
