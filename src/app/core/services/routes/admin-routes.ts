@@ -2,6 +2,10 @@ import { ChartPieIcon } from "@heroicons/react/24/outline";
 import { ChartPieIcon as ChartPieIconSolid } from "@heroicons/react/24/solid";
 import { ShoppingBagIcon } from "@heroicons/react/24/outline";
 import { ShoppingBagIcon as ShoppingBagIconSolid } from "@heroicons/react/24/solid";
+import { UserGroupIcon } from "@heroicons/react/24/outline";
+import { UserGroupIcon as UserGroupIconSolid } from "@heroicons/react/24/solid";
+import { FingerPrintIcon } from "@heroicons/react/24/outline";
+import { FingerPrintIcon as FingerPrintIconSolid } from "@heroicons/react/24/solid";
 
 import {
   RouteItem,
@@ -12,6 +16,8 @@ import AuthGuard from "../../layouts/AuthGuard";
 import AdminDashboard from "../../../modules/admin/dashboard";
 import { ROUTES } from "../../constants/routes";
 import AdminProducts from "../../../modules/admin/products";
+import AdminRoles from "../../../modules/admin/roles";
+import AdminUsers from "../../../modules/admin/users";
 
 const userTypes = [UserTypes.admin];
 const roles = [] as any;
@@ -40,4 +46,33 @@ export const products: RouteItem = {
   iconActive: ShoppingBagIconSolid,
 };
 
-export const adminRoutes: RouteItem[] = [overview, products];
+export const roleManagementPage: RouteItem = {
+  name: "Roles",
+  id: ROUTES.ADMIN.roles.key,
+  path: ROUTES.ADMIN.roles.key,
+  component: AdminRoles,
+  guard: AuthGuard,
+  userTypes,
+  roles: [UserRoles.admin],
+  icon: FingerPrintIcon,
+  iconActive: FingerPrintIconSolid,
+};
+
+export const userManagementPage: RouteItem = {
+  name: "Users",
+  id: ROUTES.ADMIN.users.key,
+  path: ROUTES.ADMIN.users.key,
+  component: AdminUsers,
+  guard: AuthGuard,
+  userTypes,
+  roles: [UserRoles.admin],
+  icon: UserGroupIcon,
+  iconActive: UserGroupIconSolid,
+};
+
+export const adminRoutes: RouteItem[] = [
+  overview,
+  products,
+  roleManagementPage,
+  userManagementPage,
+];

@@ -21,6 +21,8 @@ export interface IUser {
     dashboard_reports: string[];
     favorite_reports: string[];
     name: string;
+    mobile?: string;
+    role?: string;
   };
   relationships: {
     organization?: IOrganization;
@@ -47,15 +49,12 @@ export type GetUsersQuery = IMetaQuery & {
 };
 
 export type CreateAdminUserParam = {
-  organization_id?: number | string;
   type: string;
-  first_name: string;
-  last_name: string;
-  gym_id?: string;
+  name: string;
   email?: string;
   password?: string;
   password_confirmation?: string;
-  phone?: string;
+  mobile?: string;
   id?: string | number;
   roles?: any[];
   role?: string;
