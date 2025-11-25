@@ -23,6 +23,12 @@ export const ROUTES = {
     products: {
       key: adminBasePath + "/products",
     },
+    roles: {
+      key: adminBasePath + "/roles",
+    },
+    users: {
+      key: adminBasePath + "/users",
+    },
   },
   USER: {
     dashboard: {
